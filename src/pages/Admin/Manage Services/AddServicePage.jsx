@@ -353,7 +353,7 @@ const AddEditServicePage = () => {
                     {values.existingGallery?.map((img, idx) => (
                       <img
                         key={idx}
-                        src={`http://localhost:5000/${img}`}
+                        src={`${import.meta.env.VITE_BASE_URL}uploads/${img}`}
                         alt={`existing-${idx}`}
                         className="h-16 w-16 object-cover rounded border border-gray-500"
                       />

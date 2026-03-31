@@ -8,6 +8,7 @@ export default function Services() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const API_URL = import.meta.env.VITE_API_URL;
+  const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -72,7 +73,7 @@ export default function Services() {
                     onClick={() => handleServiceClick(s._id)}
                   >
                     <img
-                      src={`https://szserver.swiftzap.in/${s.galleryImages[0].replace(/\\/g, "/")}`}
+                      src={`${VITE_BASE_URL}${s.galleryImages[0].replace(/\\/g, "/")}`}
                       alt={s.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />

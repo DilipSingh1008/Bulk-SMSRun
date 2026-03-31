@@ -8,7 +8,7 @@ export default function BannerModal() {
   useEffect(() => {
     const fetchBanner = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/flash-banner");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/flash-banner`);
         const data = await res.json();
         console.log(data);
 
@@ -48,7 +48,7 @@ export default function BannerModal() {
 
             {activeBanner.photo && (
               <img
-                src={`http://localhost:5000/uploads/${activeBanner.photo}`}
+                src={`${import.meta.env.VITE_BASE_URL}uploads/${activeBanner.photo}`}
                 alt={activeBanner.title}
                 className="w-full h-64 object-cover cursor-pointer"
                 onClick={handleClick}

@@ -173,14 +173,17 @@ export default function ServiceDetailPricing() {
               validationSchema={enquirySchema}
               onSubmit={async (values, { resetForm, setSubmitting }) => {
                 try {
-                  const res = await fetch("http://localhost:5000/api/enquiry", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      ...values,
-                      planId: selectedPlan._id,
-                    }),
-                  });
+                  const res = await fetch(
+                    `${import.meta.env.VITE_API_URL}/enquiry`,
+                    {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        ...values,
+                        planId: selectedPlan._id,
+                      }),
+                    },
+                  );
                   const data = await res.json();
                   alert("Request Submitted Successfully");
                   resetForm();
